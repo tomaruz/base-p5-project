@@ -17,27 +17,25 @@ function setup() {
 function draw() {
     createCanvas(windowWidth, windowHeight);
     noStroke();
+    let length = 20;
     while (theta < maxAngle + offset) {
-        //sine wave 1
-        y = sin(theta - 0.2) * amplitude;
-        fill(150, 0, 0)
-        ellipse(x, y + height * 0.5, 10);
-        //cosine wave 1
-        y = cos(theta) * amplitude;
-        fill(0, 255, 0)
-        ellipse(x, y + height * 0.5, 10);
-        //sine wave
-        y = sin(theta) * amplitude;
-        fill(255, 0, 0)
-        ellipse(x, y + height * 0.5, 10);
-        //cosine wave
-        y = cos(theta) * amplitude;
-        fill(0, 255, 0)
-        ellipse(x, y + height * 0.5, 10);
+        // amplitude = sin(theta - offset) * (windowHeight/2);
+        amplitude = ((theta-offset)/maxAngle) * (windowHeight/2);
+        for (i = length; i > 0; i--) {
+            y = sin(theta - (i * 0.05)) * amplitude;
+            fill(230, 230 - (230/length * i), 250);
+            square(x, y + height * 0.5, 16);
+            // ellipse(x, y + height * 0.5, 20);
+        }
+        for (i = length; i > 0; i--) {
+            y = cos(theta - (i * 0.08)) * amplitude;
+            fill(255, 255 - (255/length * i), 0)
+            ellipse(x, y + height * 0.5, 10);
+            // square(x, y + height * 0.5, 16);
+        }
         theta += 0.2;
-        x = ((theta - offset) / maxAngle) * windowWidth;
+        x = ((theta - offset)/maxAngle) * windowWidth;
     }
     offset += inc;
     theta = offset;
-
 }
