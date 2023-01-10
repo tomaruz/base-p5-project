@@ -8,7 +8,7 @@ let frequency;
 let maxAngle;
 function setup() {
     // when using while, must give an end or it will go on forever
-    amplitude = windowHeight / 2;
+    amplitude = windowHeight / 4;
     frequency = windowWidth / 4;
     maxAngle = (windowWidth / frequency) * TWO_PI;
 }
@@ -17,10 +17,22 @@ function setup() {
 function draw() {
     createCanvas(windowWidth, windowHeight);
     noStroke();
-    // fill(255, 0 , 0)
     while (theta < maxAngle + offset) {
-        y = sin(theta) * 100;
-        // 16 is the diameter of the circle
+        //sine wave 1
+        y = sin(theta - 0.2) * amplitude;
+        fill(150, 0, 0)
+        ellipse(x, y + height * 0.5, 10);
+        //cosine wave 1
+        y = cos(theta) * amplitude;
+        fill(0, 255, 0)
+        ellipse(x, y + height * 0.5, 10);
+        //sine wave
+        y = sin(theta) * amplitude;
+        fill(255, 0, 0)
+        ellipse(x, y + height * 0.5, 10);
+        //cosine wave
+        y = cos(theta) * amplitude;
+        fill(0, 255, 0)
         ellipse(x, y + height * 0.5, 10);
         theta += 0.2;
         x = ((theta - offset) / maxAngle) * windowWidth;
