@@ -1,15 +1,16 @@
 let x = 0;
 let y = 0;
 let theta = 0;
-let inc = 0.1;
+let inc = 0.05;
 let offset = 0; // the amount offset from beginning of wave
 let amplitude;
 let frequency;
 let maxAngle;
-let num = 60;
+let num = 25;
 let mx = [];
 let my = [];
 function setup() {
+    noCursor();
     // when using while, must give an end or it will go on forever
     amplitude = windowHeight;
     frequency = windowWidth;
@@ -39,7 +40,7 @@ function draw() {
       let index = (which + 1 + i) % num;
       ellipse(mx[index], my[index], i, i);
     }
-    let length = 10;
+    let length = 8;
     while (theta < maxAngle + offset) {
         // amplitude = sin(theta - offset) * (windowHeight*0.5);
         amplitude = ((theta - offset) / maxAngle) * (windowHeight / 2);
@@ -57,10 +58,10 @@ function draw() {
         }
         theta += 0.08;
         x = ((theta - offset) / maxAngle) * windowWidth;
-        
+
     }
     
-
     offset += inc;
     theta = offset;
 }
+
