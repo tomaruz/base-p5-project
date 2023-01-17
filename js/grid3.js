@@ -14,22 +14,29 @@ function setup() {
     let sizes = [CELL_SIZE, CELL_SIZE * 2, CELL_SIZE * 3];
     let currentWidth = random(sizes);
     let currentHeight = random(sizes);
+    noStroke();
     // creating a color array
     let colours = [color('#fbeee6'), color('#ffe5d8'), color('#ffcad4'), color('#f3abb6'), color('#9f8189')];
-    noStroke()
     strokeWeight(10);
     while (y < height) {
         while (x < width) {
+          
             // pass the array though random
             fill(random(colours));
             // rect(x + random(-xVariation, xVariation), y + random(-yVariation, yVariation), CELL_SIZE + random(-heightVariation, heightVariation));
             rect(x,y, currentWidth, currentHeight);
-            stroke(0.5)
+            // stroke(0.5)
+
             fill(random(colours));
-            rect(x,y, currentWidth/2, currentHeight/2);
+            // rect(x + random(-xVariation, xVariation), y + random(-yVariation, yVariation), CELL_SIZE + random(-heightVariation, heightVariation));
+            rect(x+(currentWidth*0.25),y+(currentHeight*0.25), currentWidth*0.5, currentHeight*0.5);
+            // ellipse(x+(currentWidth*0.5),y+(currentHeight*0.5), PI);
+    
             x += currentWidth;
             let availableWidth = width - x;
             currentWidth = random(sizes);
+            
+            
             // makes sure the cell at the edge only occupies the availabe space, so the boarder shows and doesnt get cut off
             while(currentWidth > availableWidth){
                 currentWidth -= CELL_SIZE;
