@@ -1,6 +1,6 @@
 function setup() {
     //the width and the hight of indivual cell
-    const CELL_SIZE = 50;
+    const CELL_SIZE = 80;
     createCanvas(800, 800);
     background(0)
     // let x and let y need to be outside the loop or they will get reset to 0 every time
@@ -16,7 +16,7 @@ function setup() {
     let currentHeight = random(sizes);
     // creating a color array
     let colours = [color('#251f3a'), color('#deb210'), color('#dbd9d7'), color('#ce3219'), color('#324494')];
-    strokeWeight(5);
+    strokeWeight(10);
     while (y < height) {
         while (x < width) {
             // pass the array though random
