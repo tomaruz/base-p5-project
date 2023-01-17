@@ -24,10 +24,19 @@ function setup() {
             // rect(x + random(-xVariation, xVariation), y + random(-yVariation, yVariation), CELL_SIZE + random(-heightVariation, heightVariation));
             rect(x,y, currentWidth, currentHeight);
             x += currentWidth;
+            let availableWidth = width - x;
             currentWidth = random(sizes);
+            // makes sure the cell at the edge only occupies the availabe space, so the boarder shows and doesnt get cut off
+            while(currentWidth > availableWidth){
+                currentWidth -= CELL_SIZE;
+            }
         }
         y += currentHeight;
+        let availabeHeight = height - y;
         currentHeight = random(sizes);
+        while(currentHeight > availabeHeight){
+            currentHeight -= CELL_SIZE;
+        }
         x = 0;
     }
 }
