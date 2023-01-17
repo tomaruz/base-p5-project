@@ -1,7 +1,6 @@
 // an empty array
 let textures = [];
 
-
 function preload() {
     // the number of textures I have
     let texturesNum = 4;
@@ -14,7 +13,7 @@ function preload() {
 function setup() {
     let colours = [color('#251f3a'), color('#deb210'), color('#dbd9d7'), color('#ce3219'), color('#324494')];
     createCanvas(800, 800);
-    const CELL_SIZE = 20;
+    const CELL_SIZE = 100;
     let x = 0;
     let y = 0;
     let xVariation = 20;
@@ -30,10 +29,11 @@ function setup() {
         while (x < width) {
             tint(random(colours));
             let t = random(textures);
-            image(t, x + random(-xVariation, xVariation), y + random(-yVariation, yVariation), CELL_SIZE + random(-widthVariation, widthVariation), CELL_SIZE + random(-heightVariation, heightVariation));
-            x += currentWidth;
-            let availableWidth = width - x;
-            currentWidth = random(sizes);
+            push()
+            translate(x + CELL_SIZE/2, y+ CELL_SIZE/2);
+            rotate(random(0.5));
+            image(t, -CELL_SIZE/2, -CELL_SIZE/2, CELL_SIZE, CELL_SIZE);
+            pop()
             x += CELL_SIZE;
         }
         
