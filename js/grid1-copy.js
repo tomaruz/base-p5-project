@@ -27,10 +27,18 @@ function setup() {
             fill(random(colours));
             // ellipse(x, y, 70)
 
-            arc(x + 50, y + 50, 80, 80, 0, PI);
-            fill(random(colours));
-            triangle(x + 20, y + 75, x + 50, y + 25, x + 80, y + 75);
+            if(random(1) > 0.5) //0.5 is the probability 
+            {
+                arc(x + 50, y + 50, 80, 80, 0, PI);
+            }
+            else{
+                triangle(x + 20, y + 75, x + 50, y + 25, x + 80, y + 75);
+            }
 
+            // arc(x + 50, y + 50, 80, 80, 0, PI);
+            // fill(random(colours));
+
+            // triangle(x + 20, y + 75, x + 50, y + 25, x + 80, y + 75);
             x += CELL_SIZE;
         }
 
@@ -43,4 +51,7 @@ function setup() {
 function draw() {
 
 }
+
+
+
 
