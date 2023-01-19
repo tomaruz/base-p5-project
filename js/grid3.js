@@ -23,9 +23,9 @@ function setup() {
           
             // pass the array though random
             fill(random(colours));
+            stroke(2)
             // rect(x + random(-xVariation, xVariation), y + random(-yVariation, yVariation), CELL_SIZE + random(-heightVariation, heightVariation));
             rect(x,y, currentWidth, currentHeight);
-            // stroke(0.5)
 
             fill(random(colours));
             // rect(x + random(-xVariation, xVariation), y + random(-yVariation, yVariation), CELL_SIZE + random(-heightVariation, heightVariation));
