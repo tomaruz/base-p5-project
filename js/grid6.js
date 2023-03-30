@@ -8,7 +8,9 @@ function setup() {
 
     let colours = [color('#11304b'), color('#e1dbb4'), color('#ed9033'), color('#f9c554')];
     createCanvas(800, 800);
+    // color array
 
+    //creating a grid
     while (y < height) {
 
         while (x < width) {
@@ -17,9 +19,8 @@ function setup() {
             noStroke();
             rect(x, y, 100, 100);
 
-            fill(random(colours));
+            fill(random(colours)); // returns a random element from colours array and fills the squares
             noStroke();
-
 
 
             if (random(1) > 0.5) {
@@ -52,17 +53,6 @@ function setup() {
             }
 
 
-            // if (random(1) > 0.25) {
-            // fill(random(colours));
-            // noStroke();    
-            // arc(x+100, y+100, 200, 200, radians(180), radians(-90));
-            // }else{
-            // fill(random(colours));
-            // noStroke();    
-            // arc(x, y+100, 200, 200, radians(-90), radians(-360));
-            // }
-
-
             x += CELL_SIZE;
         }
 
@@ -72,9 +62,6 @@ function setup() {
 
 }
 
-function draw() {
-
-}
 
 
 
